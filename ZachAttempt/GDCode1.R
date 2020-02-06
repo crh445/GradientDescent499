@@ -4,12 +4,17 @@ library(ggplot2)
 library(data.table)
 
 # constants for algorithm
-maxIterations = 10000
-stepSize = 0.0001
+maxIter = 10000
+step = 0.0001
 
-# read in the data
-spamData <- fread('https://web.stanford.edu/~hastie/ElemStatLearn/datasets/spam.data')
+# read in the data for spam
+# don't run the download every time
+# spamData <- fread('https://web.stanford.edu/~hastie/ElemStatLearn/datasets/spam.data')
+spamData <- matrix(unlist(spamData), 4601, 58)
+dataMatrix = spamData[, c(1:57)]
+dataVector = spamData[, c(58)]
 
+GradientDescent(X = dataMatrix, Y = dataVector, stepSize = step, maxIterations = maxIter)
 
 
 
@@ -28,19 +33,23 @@ spamData <- fread('https://web.stanford.edu/~hastie/ElemStatLearn/datasets/spam.
 #weightMatrix: returns a matrix called weightMatrix of real numbers where
 #        the number of rows is the number of input features
 #        the number of columns is maxIterations
-#GradientDescent <- function( X, Y, stepSize, maxIterations )
-#{
+GradientDescent <- function( X, Y, stepSize, maxIterations )
+{
   # declare a weight vector and initialize it to zero
   # same size as the number of features
-#  weightVector = rep(0, ncol(X))
+  weightVector = rep(data = 0, ncol(X))
   
   # There should be a variable called weightMatrix of real numbers 
   # (number of rows = number of input features, number of columns = maxIterations)
-#  weightMatrix = 0
+  weightMatrix = matrix(data = 0, nrow = ncol(X), ncol = maxIterations)
   
   
-#  return weightMatrix
-#}
+  return(weightMatrix)
+}
+
+
+# function for computing gradient
+getGradient <- function( )
 
 
 
