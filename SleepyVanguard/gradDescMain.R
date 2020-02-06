@@ -33,10 +33,10 @@ gradDescMain <- function(maxIterations, stepSize)
     # multiply train and validation inputs by weightmatrix to get predicitions
     
     # pred one is the prediction matrix based on train data
-    pred1 <- trainData %*% trainWeightMatrix 
+    #pred1 <- trainData %*% trainWeightMatrix 
     
     # pred two is the prediction matrix based on validation data
-    pred2 <- validData %*% trainWeightMatrix
+    #pred2 <- validData %*% trainWeightMatrix
     
     
     
