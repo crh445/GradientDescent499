@@ -3,6 +3,7 @@ calcError <- function(weightMatrix, X, y, maxIterations)
   errorVector <- numeric(maxIterations)
   
   pred = X %*% weightMatrix
+  print(dim(pred))
   
   numWrong <- 0
   
@@ -10,7 +11,7 @@ calcError <- function(weightMatrix, X, y, maxIterations)
   {
     for(j in 1:nrow(pred))
     {
-      if(pred[j,i] < 0)
+      if(pred[j,i] < 0.5)
       {
         conversion <- 0
       }

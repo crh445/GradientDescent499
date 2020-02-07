@@ -1,20 +1,16 @@
 fixData <- function(inputData){
   
   #inputData comes in as a list of vectors
-  unscaledMatrix <- t(matrix(unlist(inputData), byrow = TRUE, nrow=length(inputData)))
-  #print(unscaledMatrix[3,3])
-  scaledMatrix <- scale(unscaledMatrix, TRUE, TRUE)
-  #print(scaledMatrix)
+  #unscaledMatrix <- t(matrix(unlist(inputData), byrow = TRUE, nrow=length(inputData)))
+  unscaledMatrix <- matrix(unlist(inputData),4601,58)
   
   #set seed (111)
   set.seed(111)
   
-  
   #take 60% sample of scaled matrix
   trainRows <- sample.int(n = nrow(unscaledMatrix), size = floor(.6*nrow(unscaledMatrix)), replace = FALSE)
   trainMatrix <- unscaledMatrix[trainRows,]
-  output <- unscaledMatrix[,ncol(scaledMatrix)]
-  
+  #trainOutput <- unscaledMatrix[trainRows,ncol(unscaledMatrix)]
   
   #declare matrix with the remaining data
   remMatrix <- unscaledMatrix[-trainRows,]
@@ -50,9 +46,9 @@ fixData <- function(inputData){
   scaledTrain <- scale(trainMatrix, TRUE, TRUE)
   scaledTest <- scale(testMatrix, TRUE, TRUE)
   
-  returnValid <- scaledValid[1:nrow(scaledValid), 1:ncol(scaledValid) - 1]
-  returnTrain <- scaledTrain[1:nrow(scaledTrain), 1:ncol(scaledTrain) - 1]
-  returnTest <- scaledTest[1:nrow(scaledTest), 1:ncol(scaledTest) - 1]
+  returnValid <- scaledValid[, 1:ncol(scaledValid) - 1]
+  returnTrain <- scaledTrain[, 1:ncol(scaledTrain) - 1]
+  returnTest <- scaledTest[, 1:ncol(scaledTest) - 1]
   validOutput <- validMatrix[,ncol(validMatrix)]
   testOutput <- testMatrix[,ncol(testMatrix)]
   trainOutput <- trainMatrix[,ncol(trainMatrix)]

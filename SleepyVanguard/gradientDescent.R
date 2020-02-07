@@ -6,35 +6,31 @@
 # maxIterations = how many iterations the function should run
 gradientDescent <- function(X, y, stepSize, maxIterations)
 {
+  
   # initialize weight vector to vector of zeroes
-  weightVector <- numeric(ncol(X))
-  # temp test prints
+  #weightVector <- numeric(ncol(X))
+  weightVector <- matrix(data = 0, nrow = ncol(X), ncol = 1)
   
   # weight matrix declaration 
     # num of columns = 1
     # num of rows = num of features
-  weightMatrix <- matrix(0,nrow = ncol(X), ncol = maxIterations)
+  weightMatrix <- matrix(0, nrow = ncol(X), ncol = maxIterations)
   
-  iteration <- 2
-  prevWeight <- weightMatrix[,1]
   
-  #start at iteration 2 as this is the first weight vector we calculate
-  while(iteration <= maxIterations)
+  # start at iteration 2 as this is the first weight vector we calculate
+  for(iter in 2:maxIterations)
   {
-      #calculate the gradient with the previous weight vector
-      currGradient <- calcGradient(X, y, weightMatrix[,iteration - 1])
-
-      weightVector <- as.vector(weightMatrix[,iteration - 1]) - (stepSize * currGradient)
+      # calculate the gradient with the previous weight vector
+      currGradient <- calcGradient(X, y, weightMatrix[,iter - 1])
       
-      #set corresponding column of weightMatrix
-      weightMatrix[,iteration] <- c(weightVector)
+      # calculate new weight vector
+      weightVector <- weightMatrix[,iter - 1] - (stepSize * currGradient)
       
-      iteration <- iteration+1
+      # set corresponding column of weightMatrix
+      weightMatrix[,iter] <- weightVector
   }
   
   return(weightMatrix)
-  
-  
 }
 
 
@@ -45,15 +41,13 @@ calcGradient <- function(X, y, theta)
   
   # convert all 0's to -1's
   yNew[yNew==0]<-(-1)
+  
   returnVal <- numeric(ncol(X))
-  #print("ynew:")
-  #print(yNew)
-  #print("Theta:")
+
   for(iter in 1: nrow(X))
   {
-    
+    # calculate theta^T * x^i
     xTheta <- t(theta) %*% X[iter,]
-    #print(xTheta)
     
     #multiply first scalar
     scal1 <- (1 / ( 1 + exp(-yNew[iter] * xTheta[1,1])))
@@ -65,13 +59,10 @@ calcGradient <- function(X, y, theta)
     
     #multiply vector
     vec1 <- -yNew[iter] * X[iter,]
-    #print(vec1)
-    
-    
+
     returnVal <- returnVal + ((scal1 * scal2) * vec1)
-    
   }          
-  returnVal <- returnVal / (length(returnVal))
+  returnVal <- returnVal / (nrow(X))
   return(c(returnVal))
   
 }

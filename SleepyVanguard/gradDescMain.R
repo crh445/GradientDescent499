@@ -11,6 +11,7 @@ gradDescMain <- function(maxIterations, stepSize)
   
     #load data in from the file
     spam <- read.table("D:/_ClassesSpring2020/Deep Learning/code/project_1/spam.data", quote="\"", comment.char="")
+    #spam <- read.table("https://web.stanford.edu/~hastie/ElemStatLearn/datasets/spam.data", quote="\"", comment.char="")
   
     #set maxIterations
     
@@ -30,22 +31,14 @@ gradDescMain <- function(maxIterations, stepSize)
     #use gradient descent on train data first to get a weight matrix
     trainWeightMatrix <- gradientDescent(trainData, trainOutput, stepSize, maxIterations)
     
-    # multiply train and validation inputs by weightmatrix to get predicitions
-    
-    # pred one is the prediction matrix based on train data
-    #pred1 <- trainData %*% trainWeightMatrix 
-    
-    # pred two is the prediction matrix based on validation data
-    #pred2 <- validData %*% trainWeightMatrix
     
     
     
     error1.data <- calcError(trainWeightMatrix, trainData, trainOutput, maxIterations)
     error2.data <- calcError(trainWeightMatrix, validData, validOutput, maxIterations)
     ggplot() + 
-      geom_line(error2.data, colour = "black", mapping = aes(x = iterVector, y = errorVector)) +
-      geom_line(error1.data, colour = "red", mapping = aes(x = iterVector, y = errorVector)) 
-      
+      geom_line(error1.data, colour = "black", mapping = aes(x = iterVector, y = errorVector)) + 
+      geom_line(error2.data, colour = "red", mapping = aes(x = iterVector, y = errorVector)) 
     
     #return(errorVector)
     
