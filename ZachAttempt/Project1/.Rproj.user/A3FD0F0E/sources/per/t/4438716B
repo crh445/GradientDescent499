@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1581039483139.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2049699033",
+    "id" : "4438716B",
+    "lastKnownWriteTime" : 1581055165,
+    "last_content_update" : 1581055165734,
+    "path" : "C:/GitHub/GradientDescent499/ZachAttempt/Project1/fixData.R",
+    "project_path" : "fixData.R",
+    "properties" : {
+        "cursorPosition" : "12,35",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

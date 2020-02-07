@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1581039481796.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3818081173",
+    "id" : "A5D191A1",
+    "lastKnownWriteTime" : 1581027625,
+    "last_content_update" : 1581027625,
+    "path" : "C:/GitHub/GradientDescent499/ZachAttempt/Project1/calcError.R",
+    "project_path" : "calcError.R",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

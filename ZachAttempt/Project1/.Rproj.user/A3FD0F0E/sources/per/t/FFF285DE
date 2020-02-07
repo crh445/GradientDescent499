@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1581039485648.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3823329518",
+    "id" : "FFF285DE",
+    "lastKnownWriteTime" : 1581053804,
+    "last_content_update" : 1581053804661,
+    "path" : "C:/GitHub/GradientDescent499/ZachAttempt/Project1/gradientDescent.R",
+    "project_path" : "gradientDescent.R",
+    "properties" : {
+        "cursorPosition" : "23,61",
+        "scrollLine" : "4"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
